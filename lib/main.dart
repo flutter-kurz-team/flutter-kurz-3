@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/HomeScreen.dart';
+import 'screens/SecondScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/' : (context) => HomeScreen(),
+        '/second' : (context) => SecondScreen(),
+      },
+      initialRoute: '/',
     );
   }
 }
