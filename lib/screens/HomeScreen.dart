@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            ElevatedButton(onPressed: () => {
+            ElevatedButton(onPressed: () {
               Navigator.pushNamed(context, '/second');
             }, child: Text("Druhá obrazovka")),
           ],

@@ -8,7 +8,23 @@ class SecondScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("SecondScreen"),
       ),
-      body: Text("body"),
+      body: Center(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text("Druhá obrazovka"),
+                  ElevatedButton(
+                    child: Text("Zpět na hlavní obrazovku"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/");
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+      ),
     );
   }
 }
