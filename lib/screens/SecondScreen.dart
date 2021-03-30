@@ -21,7 +21,7 @@ class _SecondScreenState extends State<SecondScreen> {
     SharedPreferences.getInstance().then((value) {
       prefs = value;
       setState(() {
-        _savedText = prefs.getString("textFromSecondScreen");
+        _savedText = prefs.getString("textFromSecondScreen") ?? "";
       });
     });
   }
@@ -33,7 +33,7 @@ class _SecondScreenState extends State<SecondScreen> {
 
   void _reload() async {
     setState(() {
-      _savedText = prefs.getString("textFromSecondScreen");
+      _savedText = prefs.getString("textFromSecondScreen") ?? "";
     });
   }
 
