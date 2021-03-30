@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -18,6 +19,19 @@ class _HomeScreenState extends State<HomeScreen> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _saveCounter(int counterValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt("counter", counterValue);
+  }
+
+  void _loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int counterValueFromPrefs = prefs.getInt("counter") ?? 0;
+    setState(() {
+      _counter = counterValueFromPrefs;
     });
   }
 
@@ -65,6 +79,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton(onPressed: () {
               Navigator.pushNamed(context, '/second');
             }, child: Text("Druhá obrazovka")),
+            ElevatedButton(
+              child: Text("Uložit"),
+              onPressed: () {
+                _saveCounter(_counter);
+              },
+            ),
+            ElevatedButton(
+              child: Text("Načíst"),
+              onPressed: () {
+                _loadCounter();
+              }
+            ),
           ],
         ),
       ),
