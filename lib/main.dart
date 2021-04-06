@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/' : (context) => HomeScreen(),
-        '/second' : (context) => SecondScreen(),
+        '/': (context) => HomeScreen(),
+        '/second': (context) => SecondScreen(),
       },
       initialRoute: '/',
     );

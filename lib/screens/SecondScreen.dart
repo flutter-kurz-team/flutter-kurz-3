@@ -8,7 +8,6 @@ class SecondScreen extends StatefulWidget {
   _SecondScreenState createState() => _SecondScreenState();
 }
 
-
 class _SecondScreenState extends State<SecondScreen> {
   TextEditingController _controller;
   String _savedText = "";
@@ -44,34 +43,34 @@ class _SecondScreenState extends State<SecondScreen> {
         title: Text("SecondScreen"),
       ),
       body: Center(
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  TextField(
-                    controller: _controller,
-                  ),
-                  ElevatedButton(child: Text("Uložit"), onPressed: _saveText),
-                ],
-              ),
-              Column(
-                children: [
-                  Text("Naposledy jste napsal:"),
-                  Text(_savedText),
-                  ElevatedButton(
-                    child: Text("Načíst"),
-                    onPressed: _reload,
-                  ),
-                  ElevatedButton(
-                    child: Text("Zpět na hlavní obrazovku"),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/");
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            Column(
+              children: [
+                TextField(
+                  controller: _controller,
+                ),
+                ElevatedButton(child: Text("Uložit"), onPressed: _saveText),
+              ],
+            ),
+            Column(
+              children: [
+                Text("Naposledy jste napsal:"),
+                Text(_savedText),
+                ElevatedButton(
+                  child: Text("Načíst"),
+                  onPressed: _reload,
+                ),
+                ElevatedButton(
+                  child: Text("Zpět na hlavní obrazovku"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/");
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

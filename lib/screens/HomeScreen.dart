@@ -76,9 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            ElevatedButton(onPressed: () {
-              Navigator.pushNamed(context, '/second');
-            }, child: Text("Druhá obrazovka")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/second');
+                },
+                child: Text("Druhá obrazovka")),
             ElevatedButton(
               child: Text("Uložit"),
               onPressed: () {
@@ -86,11 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ElevatedButton(
-              child: Text("Načíst"),
-              onPressed: () {
-                _loadCounter();
-              }
-            ),
+                child: Text("Načíst"),
+                onPressed: () {
+                  _loadCounter();
+                }),
           ],
         ),
       ),
