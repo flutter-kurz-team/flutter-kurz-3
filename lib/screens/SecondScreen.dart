@@ -23,15 +23,29 @@ class _SecondScreenState extends State<SecondScreen> {
     });
   }
 
-  void _saveText() {
+  void _saveText() async {
+    if(!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
+    List<String> savedData = _prefs.getStringList("UZASNE_NAPADY") ?? [];
 
+    savedData.add(_controller.text);
+    _prefs.setStringList("UZASNE_NAPADY", savedData);
+    _controller.clear();
+    _prefs = await SharedPreferences.getInstance();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SecondScreen"),
+        title: Text("Přidání úžasného nápadu"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.error),
+            onPressed: () => Navigator.pushNamed(context, "/"),
+          ),
+        ],
       ),
       body: Center(
         child: Column(

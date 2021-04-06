@@ -29,6 +29,38 @@ class _HomeScreenState extends State<HomeScreen> {
     return _prefs.getStringList("UZASNE_NAPADY") ?? ["Žádné položky"];
   }
 
+  void _remove(int index) async {
+    if(!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
+    List<String> ideas = _prefs.getStringList("UZASNE_NAPADY");
+
+    ideas.removeAt(index);
+
+    _prefs.setStringList("UZASNE_NAPADY", ideas);
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {
+
+    });
+  }
+
+  void _clone(int index) async {
+    if(!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
+    List<String> ideas = _prefs.getStringList("UZASNE_NAPADY");
+    String clone;
+
+    clone = ideas.elementAt(index);
+    ideas.add(clone);
+    _prefs.setStringList("UZASNE_NAPADY", ideas);
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {
+
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +81,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Container(child: Text(snapshot.data[index]));
+                      return Row(children: [
+                        Text(snapshot.data[index]),
+                        IconButton(
+                          icon: const Icon(Icons.clear),
+                          onPressed: () => _remove(index),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.add),
+                          onPressed: () => _clone(index),
+                        ),
+                      ],);
                     }
                 );
               }
