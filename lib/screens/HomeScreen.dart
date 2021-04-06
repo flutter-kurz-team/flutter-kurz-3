@@ -34,42 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Screen"),
+        title: Text("Seznam úžasných nápadů"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/second');
-                },
-                child: Text("Druhá obrazovka")),
-            ElevatedButton(
-              child: Text("Uložit"),
-              onPressed: () {
-                _saveCounter(_counter);
-              },
-            ),
-            ElevatedButton(
-                child: Text("Načíst"),
-                onPressed: () {
-                  _loadCounter();
-                }),
-          ],
+        child: Container(
+
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
