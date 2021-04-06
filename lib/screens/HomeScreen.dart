@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _prefs = await SharedPreferences.getInstance();
     }
 
-    return _prefs.getStringList("UZASNE_NAPADY") ?? [];
+    return _prefs.getStringList("UZASNE_NAPADY") ?? ["Žádné položky"];
   }
 
   @override
@@ -34,13 +34,26 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Seznam úžasných nápadů"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.hardware),
+            onPressed: () => {
+              Navigator.pushNamed(context, "/second")
+            },
+          ),
+        ],
       ),
       body: Center(
         child: FutureBuilder(
             future: getListOfIdeas(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if(snapshot.hasData) {
-                return Text("Mám Data");
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(child: Text(snapshot.data[index]));
+                    }
+                );
               }
               else if(snapshot.hasError) {
                 return Text("Mám chybu");
