@@ -37,9 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.hardware),
-            onPressed: () => {
-              Navigator.pushNamed(context, "/second")
-            },
+            onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
         ],
       ),

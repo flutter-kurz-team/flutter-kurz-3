@@ -10,30 +10,21 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   TextEditingController _controller;
-  String _savedText = "";
-  SharedPreferences prefs;
+  SharedPreferences _prefs;
+  bool started = false;
 
-  @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
     SharedPreferences.getInstance().then((value) {
-      prefs = value;
-      setState(() {
-        _savedText = prefs.getString("textFromSecondScreen") ?? "";
-      });
+      _prefs = value;
+      started = true;
+      print("Nastartováno");
     });
   }
 
-  void _saveText() async {
-    await prefs.setString("textFromSecondScreen", _controller.text);
-    _controller.clear();
-  }
+  void _saveText() {
 
-  void _reload() async {
-    setState(() {
-      _savedText = prefs.getString("textFromSecondScreen") ?? "";
-    });
   }
 
   @override
@@ -51,22 +42,6 @@ class _SecondScreenState extends State<SecondScreen> {
                   controller: _controller,
                 ),
                 ElevatedButton(child: Text("Uložit"), onPressed: _saveText),
-              ],
-            ),
-            Column(
-              children: [
-                Text("Naposledy jste napsal:"),
-                Text(_savedText),
-                ElevatedButton(
-                  child: Text("Načíst"),
-                  onPressed: _reload,
-                ),
-                ElevatedButton(
-                  child: Text("Zpět na hlavní obrazovku"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/");
-                  },
-                ),
               ],
             ),
           ],
