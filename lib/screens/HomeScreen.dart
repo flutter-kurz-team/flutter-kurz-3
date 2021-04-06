@@ -9,25 +9,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
+  SharedPreferences _prefs;
+  bool started = false;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((value) {
+      _prefs = value;
+      started = true;
+      print("Nastartováno");
     });
   }
 
-  void _saveCounter(int counterValue) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt("counter", counterValue);
-  }
+  Future<List> getListOfIdeas() async {
+    if(!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
 
-  void _loadCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int counterValueFromPrefs = prefs.getInt("counter") ?? 0;
-    setState(() {
-      _counter = counterValueFromPrefs;
-    });
+    return _prefs.getStringList("UZASNE_NAPADY") ?? [];
   }
 
   @override
@@ -37,8 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Seznam úžasných nápadů"),
       ),
       body: Center(
-        child: Container(
-
+        child: FutureBuilder(
+            future: getListOfIdeas(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if(snapshot.hasData) {
+                return Text("Mám Data");
+              }
+              else if(snapshot.hasError) {
+                return Text("Mám chybu");
+              } else {
+                return CircularProgressIndicator();
+              }
+            }
         ),
       ),
     );
