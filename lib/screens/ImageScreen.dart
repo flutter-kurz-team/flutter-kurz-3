@@ -30,6 +30,27 @@ class _ImageScreenState extends State<ImageScreen> {
     return _prefs.getStringList("IMAGES_PATHS") ?? [];
   }
 
+  void removeImage(int index) async {
+    if (!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
+    List<String> ideas = _prefs.getStringList("IMAGES_PATHS");
+
+    String pathToRemove = ideas[index];
+    File fileToDelete = File(pathToRemove);
+    try {
+      await fileToDelete.delete();
+      ideas.removeAt(index);
+    }
+    catch (e) {
+      print(e);
+    }
+
+    _prefs.setStringList("IMAGES_PATHS", ideas);
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +81,11 @@ class _ImageScreenState extends State<ImageScreen> {
                             width: 200,
                             height: 200,
                             child: Image.file(File(snapshot.data[index])),
+                          ),
+                          Container(height: 10),
+                          IconButton(
+                            icon: const Icon(Icons.clear),
+                            onPressed: () => removeImage(index),
                           ),
                           Container(height: 20),
                         ],
