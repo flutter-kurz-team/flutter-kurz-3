@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<List> getListOfIdeas() async {
-    if(!started) {
+    if (!started) {
       _prefs = await SharedPreferences.getInstance();
     }
 
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _remove(int index) async {
-    if(!started) {
+    if (!started) {
       _prefs = await SharedPreferences.getInstance();
     }
     List<String> ideas = _prefs.getStringList("UZASNE_NAPADY");
@@ -39,13 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     _prefs.setStringList("UZASNE_NAPADY", ideas);
     _prefs = await SharedPreferences.getInstance();
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   void _clone(int index) async {
-    if(!started) {
+    if (!started) {
       _prefs = await SharedPreferences.getInstance();
     }
     List<String> ideas = _prefs.getStringList("UZASNE_NAPADY");
@@ -55,10 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ideas.add(clone);
     _prefs.setStringList("UZASNE_NAPADY", ideas);
     _prefs = await SharedPreferences.getInstance();
-    setState(() {
-
-    });
-
+    setState(() {});
   }
 
   @override
@@ -77,31 +72,30 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FutureBuilder(
             future: getListOfIdeas(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if(snapshot.hasData) {
+              if (snapshot.hasData) {
                 return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Row(children: [
-                        Text(snapshot.data[index]),
-                        IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () => _remove(index),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.add),
-                          onPressed: () => _clone(index),
-                        ),
-                      ],);
-                    }
-                );
-              }
-              else if(snapshot.hasError) {
+                      return Row(
+                        children: [
+                          Text(snapshot.data[index]),
+                          IconButton(
+                            icon: const Icon(Icons.clear),
+                            onPressed: () => _remove(index),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            onPressed: () => _clone(index),
+                          ),
+                        ],
+                      );
+                    });
+              } else if (snapshot.hasError) {
                 return Text("Mám chybu");
               } else {
                 return CircularProgressIndicator();
               }
-            }
-        ),
+            }),
       ),
     );
   }

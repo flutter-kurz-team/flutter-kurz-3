@@ -24,7 +24,7 @@ class _SecondScreenState extends State<SecondScreen> {
   }
 
   void _saveText() async {
-    if(!started) {
+    if (!started) {
       _prefs = await SharedPreferences.getInstance();
     }
     List<String> savedData = _prefs.getStringList("UZASNE_NAPADY") ?? [];
