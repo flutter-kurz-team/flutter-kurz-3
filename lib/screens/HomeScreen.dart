@@ -66,6 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.hardware),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
+          IconButton(
+            icon: const Icon(Icons.camera_alt),
+            onPressed: () => Navigator.pushNamed(context, "/camera"),
+          ),
         ],
       ),
       body: Center(
