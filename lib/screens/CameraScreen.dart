@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'dart:math';
 
 class CameraScreen extends StatefulWidget {
   CameraScreen({Key key}) : super(key: key);
@@ -11,10 +15,16 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   CameraController controller;
   List<CameraDescription> cameras;
+  SharedPreferences _prefs;
+  bool started = false;
 
   void initState() {
     super.initState();
     initCamera();
+    SharedPreferences.getInstance().then((value) {
+      _prefs = value;
+      started = true;
+    });
   }
 
   void initCamera() async {
@@ -34,6 +44,38 @@ class _CameraScreenState extends State<CameraScreen> {
     super.dispose();
   }
 
+  void _saveLocation(String location) async {
+    if (!started) {
+      _prefs = await SharedPreferences.getInstance();
+    }
+    List<String> savedData = _prefs.getStringList("IMAGES_PATHS") ?? [];
+
+    savedData.add(location);
+    _prefs.setStringList("IMAGES_PATHS", savedData);
+    _prefs = await SharedPreferences.getInstance();
+  }
+
+  void saveImage() async {
+    try {
+      final image = await controller.takePicture();
+      print(image.path);
+      final directory = await getApplicationDocumentsDirectory();
+      print(directory.path);
+      String path = directory.path;
+
+      Random random = new Random();
+      int randomNumber = random.nextInt(100000000); //0 - 99999999
+      String randomFileName = 'image_' + randomNumber.toString() + '.jpg';
+      String newPath = '$path/$randomFileName';
+      await File(image.path).rename(newPath);
+      _saveLocation(newPath);
+      print("Uloženo");
+    }
+    catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +85,10 @@ class _CameraScreenState extends State<CameraScreen> {
           IconButton(
             icon: const Icon(Icons.error),
             onPressed: () => Navigator.pushNamed(context, "/"),
+          ),
+          IconButton(
+            icon: const Icon(Icons.topic),
+            onPressed: () => Navigator.pushNamed(context, "/image"),
           ),
         ],
       ),
@@ -56,7 +102,7 @@ class _CameraScreenState extends State<CameraScreen> {
                   width: 200,
                   height: 200,
                 ),
-                ElevatedButton(child: Text("Uložit"), onPressed: () {}),
+                ElevatedButton(child: Text("Uložit"), onPressed: saveImage),
               ],
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/HomeScreen.dart';
 import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
+import 'screens/ImageScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/second': (context) => SecondScreen(),
         '/camera' : (context) => CameraScreen(),
+        '/image' : (context) => ImageScreen(),
       },
       initialRoute: '/',
     );
