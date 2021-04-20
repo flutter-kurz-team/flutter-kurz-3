@@ -95,7 +95,14 @@ class _ImageScreenState extends State<ImageScreen> {
               } else {
                 return CircularProgressIndicator();
               }
+
             }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, "/"),
+        tooltip: '/',
+        child: const Icon(Icons.home),
+
       ),
     );
   }
