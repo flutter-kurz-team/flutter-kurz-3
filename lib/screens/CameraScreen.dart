@@ -5,6 +5,8 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:math';
 
+import '../components/homeFloatingButton.dart';
+
 class CameraScreen extends StatefulWidget {
   CameraScreen({Key key}) : super(key: key);
 
@@ -107,11 +109,7 @@ class _CameraScreenState extends State<CameraScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, "/"),
-        tooltip: '/',
-        child: const Icon(Icons.home),
-      ),
+          floatingActionButton: getHomeButton(context),
     );
   }
 }
