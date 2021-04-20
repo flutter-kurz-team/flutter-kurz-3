@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
+import '../components/homeFloatingButton.dart';
 class ImageScreen extends StatefulWidget {
   ImageScreen({Key key}) : super(key: key);
 
@@ -97,11 +98,7 @@ class _ImageScreenState extends State<ImageScreen> {
               }
             }),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, "/"),
-        tooltip: '/',
-        child: const Icon(Icons.home),
-      ),
+      floatingActionButton: getHomeButton(context),
     );
   }
 }
