@@ -37,9 +37,7 @@ class _SecondScreenState extends State<SecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       appBar: AppBar(
         title: Text("Přidání úžasného nápadu"),
         actions: [
@@ -49,7 +47,6 @@ class _SecondScreenState extends State<SecondScreen> {
           ),
         ],
       ),
-
       body: Center(
         child: Column(
           children: [
@@ -68,14 +65,7 @@ class _SecondScreenState extends State<SecondScreen> {
         onPressed: () => Navigator.pushNamed(context, "/"),
         tooltip: '/',
         child: const Icon(Icons.home),
-
       ),
-
     );
-
   }
-  }
-
-
-
-
+}

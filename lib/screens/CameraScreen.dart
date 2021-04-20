@@ -5,7 +5,6 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:math';
 
-
 class CameraScreen extends StatefulWidget {
   CameraScreen({Key key}) : super(key: key);
 
@@ -27,8 +26,6 @@ class _CameraScreenState extends State<CameraScreen> {
       started = true;
     });
   }
-
-
 
   void initCamera() async {
     cameras = await availableCameras();
@@ -114,9 +111,7 @@ class _CameraScreenState extends State<CameraScreen> {
         onPressed: () => Navigator.pushNamed(context, "/"),
         tooltip: '/',
         child: const Icon(Icons.home),
-
       ),
     );
-
   }
 }
