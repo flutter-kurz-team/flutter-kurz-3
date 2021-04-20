@@ -107,6 +107,11 @@ class _CameraScreenState extends State<CameraScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, "/"),
+        tooltip: '/',
+        child: const Icon(Icons.home),
+      ),
     );
   }
 }

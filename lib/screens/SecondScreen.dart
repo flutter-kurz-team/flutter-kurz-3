@@ -61,6 +61,11 @@ class _SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, "/"),
+        tooltip: '/',
+        child: const Icon(Icons.home),
+      ),
     );
   }
 }
