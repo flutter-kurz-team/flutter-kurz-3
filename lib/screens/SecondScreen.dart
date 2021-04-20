@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../components/homeFloatingButton.dart';
+
 class SecondScreen extends StatefulWidget {
   SecondScreen({Key key}) : super(key: key);
 
@@ -61,11 +63,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, "/"),
-        tooltip: '/',
-        child: const Icon(Icons.home),
-      ),
+      floatingActionButton:  getHomeButton(context),
     );
   }
 }
