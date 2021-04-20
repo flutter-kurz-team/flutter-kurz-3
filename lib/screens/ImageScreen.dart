@@ -41,8 +41,7 @@ class _ImageScreenState extends State<ImageScreen> {
     try {
       await fileToDelete.delete();
       ideas.removeAt(index);
-    }
-    catch (e) {
+    } catch (e) {
       print(e);
     }
 

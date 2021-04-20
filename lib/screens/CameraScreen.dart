@@ -70,8 +70,7 @@ class _CameraScreenState extends State<CameraScreen> {
       await File(image.path).rename(newPath);
       _saveLocation(newPath);
       print("Uloženo");
-    }
-    catch (e) {
+    } catch (e) {
       print(e);
     }
   }

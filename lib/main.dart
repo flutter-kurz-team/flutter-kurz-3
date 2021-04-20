@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/second': (context) => SecondScreen(),
-        '/camera' : (context) => CameraScreen(),
-        '/image' : (context) => ImageScreen(),
+        '/camera': (context) => CameraScreen(),
+        '/image': (context) => ImageScreen(),
       },
       initialRoute: '/',
     );
