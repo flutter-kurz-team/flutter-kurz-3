@@ -4,7 +4,7 @@ import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
 
-import '../components/Drawer.dart';
+import 'screens/Drawer.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => SecondScreen(),
         '/camera': (context) => CameraScreen(),
         '/image': (context) => ImageScreen(),
+        '/drawer': (context) => Drawer(),
       },
       initialRoute: '/',
     );
