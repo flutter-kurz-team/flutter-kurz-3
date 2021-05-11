@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../components/homeFloatingButton.dart';
+import '../components/components.dart';
 
 
 class SecondScreen extends StatefulWidget {
@@ -50,6 +50,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ),
         ],
       ),
+      drawer: Components().getDrawer(context),
       body: Center(
         child: Column(
           children: [
@@ -64,7 +65,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
-      floatingActionButton: getHomeButton(context),
+      floatingActionButton: Components().getHomeButton(context),
     );
   }
 }

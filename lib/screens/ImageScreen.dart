@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
-import '../components/homeFloatingButton.dart';
+import '../components/components.dart';
 class ImageScreen extends StatefulWidget {
   ImageScreen({Key key}) : super(key: key);
 
@@ -67,6 +67,7 @@ class _ImageScreenState extends State<ImageScreen> {
           ),
         ],
       ),
+      drawer: Components().getDrawer(context),
       body: Center(
         child: FutureBuilder(
             future: getListOfImages(),
@@ -98,7 +99,7 @@ class _ImageScreenState extends State<ImageScreen> {
               }
             }),
       ),
-      floatingActionButton: getHomeButton(context),
+      floatingActionButton: Components().getHomeButton(context),
     );
   }
 }

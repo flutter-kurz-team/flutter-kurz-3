@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../components/components.dart';
 
 
 
@@ -74,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      drawer: Components().getDrawer(context),
       body: Center(
         child: FutureBuilder(
             future: getListOfIdeas(),
