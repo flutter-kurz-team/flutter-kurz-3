@@ -60,9 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child:Scaffold(
       appBar: AppBar(
         title: Text("Seznam úžasných nápadů"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.hardware),
@@ -104,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
             }),
       ),
       floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }
