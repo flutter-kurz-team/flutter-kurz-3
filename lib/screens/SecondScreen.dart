@@ -43,6 +43,7 @@ class _SecondScreenState extends State<SecondScreen> {
       child: Scaffold(
       appBar: AppBar(
         title: Text("Přidání úžasného nápadu"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.error),
