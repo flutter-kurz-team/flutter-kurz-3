@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.edit),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
