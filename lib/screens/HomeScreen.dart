@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seznam úžasných nápadů"),
+        title: Text("Můj seznam"),
         actions: [
           IconButton(
             icon: const Icon(Icons.hardware),
