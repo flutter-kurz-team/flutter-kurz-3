@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../components/homeFloatingButton.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
 
@@ -101,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             }),
       ),
+      floatingActionButton: getHomeButton(context),
     );
   }
 }
