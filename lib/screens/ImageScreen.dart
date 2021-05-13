@@ -59,13 +59,17 @@ class _ImageScreenState extends State<ImageScreen> {
         title: Text("Seznam úžasných nápadů"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notes),
+            icon: const Icon(Icons.edit),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
             icon: const Icon(Icons.camera_alt),
             onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
+          IconButton(
+            icon: const Icon(Icons.notes),
+            onPressed: () => Navigator.pushNamed(context, "/")
+          )
         ],
       ),
       body: Center(
