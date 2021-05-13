@@ -41,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   height: 40,
                   width: 300,
                   child: ElevatedButton.icon(
-                    onPressed: () => Navigator.pushNamed(context, '/ideas'),
+                    onPressed: () => Navigator.pushNamed(context, '/'),
                     icon: Icon(Icons.notes),
                     label: Text("Seznam úžasných nápadů",
                       style: TextStyle(fontSize:17.5),
