@@ -53,7 +53,8 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Seznam úžasných nápadů"),
         actions: [
@@ -99,6 +100,7 @@ class _ImageScreenState extends State<ImageScreen> {
             }),
       ),
       floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }
