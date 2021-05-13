@@ -59,7 +59,7 @@ class _ImageScreenState extends State<ImageScreen> {
         title: Text("Seznam úžasných nápadů"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.notes),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
