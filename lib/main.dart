@@ -3,6 +3,7 @@ import 'screens/HomeScreen.dart';
 import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
+import 'screens/WelcomeScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,8 +32,10 @@ class MyApp extends StatelessWidget {
         '/second': (context) => SecondScreen(),
         '/camera': (context) => CameraScreen(),
         '/image': (context) => ImageScreen(),
+        '/welcome': (context) => WelcomeScreen(),
+
       },
-      initialRoute: '/',
+      initialRoute: '/welcome',
     );
   }
 }
