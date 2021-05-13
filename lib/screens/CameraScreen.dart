@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:math';
 
-import '../components/homeFloatingButton.dart';
+import '../components/components.dart';
 
 class CameraScreen extends StatefulWidget {
   CameraScreen({Key key}) : super(key: key);
@@ -109,7 +109,7 @@ class _CameraScreenState extends State<CameraScreen> {
           ],
         ),
       ),
-          floatingActionButton: getHomeButton(context),
+          floatingActionButton: Components().getHomeButton(context),
     );
   }
 }
