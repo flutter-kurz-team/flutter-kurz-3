@@ -86,11 +86,7 @@ class _CameraScreenState extends State<CameraScreen> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.error),
-            onPressed: () => Navigator.pushNamed(context, "/"),
-          ),
-          IconButton(
-            icon: const Icon(Icons.topic),
+            icon: const Icon(Icons.image),
             onPressed: () => Navigator.pushNamed(context, "/image"),
           ),
         ],
