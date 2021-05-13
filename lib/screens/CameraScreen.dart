@@ -79,9 +79,11 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Kamera"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.error),
@@ -110,6 +112,7 @@ class _CameraScreenState extends State<CameraScreen> {
         ),
       ),
           floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }
