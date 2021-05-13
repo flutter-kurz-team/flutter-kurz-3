@@ -46,8 +46,8 @@ class _SecondScreenState extends State<SecondScreen> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.error),
-            onPressed: () => Navigator.pushNamed(context, "/"),
+            icon: const Icon(Icons.camera_alt),
+            onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
         ],
       ),
