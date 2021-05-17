@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
+
 
 class Components {
   Drawer getDrawer(BuildContext context) {
@@ -12,12 +12,15 @@ class Components {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            child: Text('Drawer Header'),
-            decoration: BoxDecoration(
-              color: Colors.green,
+            child: Text('Drawer Header',
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 24,
+              ),
             ),
           ),
           ListTile(
+            leading: Icon(Icons.message),
             title: Text('Zápisník'),
             onTap: () {
               // Update the state of the app
@@ -27,6 +30,7 @@ class Components {
             },
           ),
           ListTile(
+            leading: Icon(Icons.camera),
             title: Text('Kamera'),
             onTap: () {
               // Update the state of the app
@@ -36,6 +40,7 @@ class Components {
             },
           ),
           ListTile(
+            leading: Icon(Icons.photo),
             title: Text('Fotky'),
             onTap: () {
               // Update the state of the app
@@ -44,6 +49,18 @@ class Components {
               Navigator.pushNamed(context, "/image");
             },
           ),
+          ListTile(
+            leading: Icon(Icons.calendar_today),
+            title: Text('Kalendář'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
+              Navigator.pushNamed(context, "/date");
+            },
+          ),
+
+
         ],
       ),
     );
@@ -58,43 +75,52 @@ class Components {
   }
 
 
-  @override
-  Widget build(BuildContext context) {
-    final title = '';
+  final List<Tab> tabs = <Tab>[
+  Tab(text: 'Zeroth'),
+  Tab(text: 'First'),
+  Tab(text: 'Second'),
+];
 
-    return MaterialApp(
-      title: title,
-      home: Scaffold(
-        // No appbar provided to the Scaffold, only a body with a
-        // CustomScrollView.
-        body: CustomScrollView(
-          slivers: <Widget>[
-            // Add the app bar to the CustomScrollView.
-            SliverAppBar(
-              // Provide a standard title.
-              title: Text(title),
-              // Allows the user to reveal the app bar if they begin scrolling
-              // back up the list of items.
-              floating: true,
-              // Display a placeholder widget to visualize the shrinking size.
-              flexibleSpace: Placeholder(),
-              // Make the initial height of the SliverAppBar larger than normal.
-              expandedHeight: 200,
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: tabs.length,
+      // The Builder widget is used to have a different BuildContext to access
+      // closest DefaultTabController.
+      child: Builder(builder: (BuildContext context) {
+        final TabController tabController = DefaultTabController.of(context);
+        tabController.addListener(() {
+          if (!tabController.indexIsChanging) {
+            // Your code goes here.
+            // To get index of current tab use tabController.index
+          }
+        });
+        return Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: tabs,
             ),
-            // Next, create a SliverList
-            SliverList(
-              // Use a delegate to build items as they're scrolled on screen.
-              delegate: SliverChildBuilderDelegate(
-                // The builder function returns a ListTile with a title that
-                // displays the index of the current item.
-                    (context, index) => ListTile(title: Text('Item #$index')),
-                // Builds 1000 ListTiles
-                childCount: 1000,
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+          body: TabBarView(
+            children: tabs.map((Tab tab) {
+              return Center(
+                child: Text(
+                  tab.text + ' Tab',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              );
+            }).toList(),
+          ),
+        );
+      }),
     );
   }
 }
+
+
+
+
+
+
+
+
+

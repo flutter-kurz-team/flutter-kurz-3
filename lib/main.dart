@@ -3,6 +3,8 @@ import 'screens/HomeScreen.dart';
 import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
+import 'screens/DatePickerScreen.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primaryColor: Colors.green,
-        textTheme: TextTheme(bodyText1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        textTheme: TextTheme(bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
         brightness: Brightness.dark,
       ),
       routes: {
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => SecondScreen(),
         '/camera': (context) => CameraScreen(),
         '/image': (context) => ImageScreen(),
+        '/date' : (context) => DatePickerScreen(),
       },
       initialRoute: '/',
     );

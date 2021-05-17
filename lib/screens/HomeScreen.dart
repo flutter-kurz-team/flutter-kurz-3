@@ -1,8 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../components/components.dart';
-
-
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Můj seznam"),
                actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.notes),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
@@ -76,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: FutureBuilder(
             future: getListOfIdeas(),
@@ -86,21 +86,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       return Row(
                         children: [
-                          Text(snapshot.data[index]),
                           Container(
-                            color: (Colors.green),
                             child: Text(
                               snapshot.data[index],
-                              style: Theme.of(context).textTheme.headline5,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
+
                           ),
+
 
                           IconButton(
                             icon: const Icon(Icons.clear),
+                            color: Colors.red,
                             onPressed: () => _remove(index),
                           ),
                           IconButton(
                             icon: const Icon(Icons.add),
+                            color: Colors.green,
                             onPressed: () => _clone(index),
                           ),
                         ],
@@ -114,6 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
             }),
       ),
       floatingActionButton: Components().getHomeButton(context),
+
     );
+
   }
 }

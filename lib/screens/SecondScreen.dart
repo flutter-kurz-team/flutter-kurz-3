@@ -45,12 +45,13 @@ class _SecondScreenState extends State<SecondScreen> {
         title: Text("Zápisník"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.error),
+            icon: const Icon(Icons.save),
             onPressed: () => Navigator.pushNamed(context, "/"),
           ),
         ],
       ),
       drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: Column(
           children: [

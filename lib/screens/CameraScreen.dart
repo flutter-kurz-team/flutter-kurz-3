@@ -95,6 +95,7 @@ class _CameraScreenState extends State<CameraScreen> {
         ],
       ),
       drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: Column(
           children: [

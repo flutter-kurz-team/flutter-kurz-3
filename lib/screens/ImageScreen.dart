@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
 import '../components/components.dart';
+
+
 class ImageScreen extends StatefulWidget {
   ImageScreen({Key key}) : super(key: key);
 
@@ -58,7 +60,7 @@ class _ImageScreenState extends State<ImageScreen> {
         title: Text("Fotky"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.notes),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
@@ -68,6 +70,7 @@ class _ImageScreenState extends State<ImageScreen> {
         ],
       ),
       drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: FutureBuilder(
             future: getListOfImages(),
