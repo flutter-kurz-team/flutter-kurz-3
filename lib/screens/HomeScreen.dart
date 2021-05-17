@@ -113,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             }),
       ),
+      floatingActionButton: Components().getHomeButton(context),
     );
   }
 }
