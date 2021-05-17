@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.green,
+        primaryColor: Colors.green,
+        textTheme: TextTheme(bodyText1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        brightness: Brightness.dark,
       ),
       routes: {
         '/': (context) => HomeScreen(),

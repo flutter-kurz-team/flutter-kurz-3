@@ -55,7 +55,7 @@ class _ImageScreenState extends State<ImageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seznam úžasných nápadů"),
+        title: Text("Fotky"),
         actions: [
           IconButton(
             icon: const Icon(Icons.hardware),

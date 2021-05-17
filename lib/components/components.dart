@@ -13,34 +13,34 @@ class Components {
           DrawerHeader(
             child: Text('Drawer Header'),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.green,
             ),
           ),
           ListTile(
-            title: Text('SecondScreen'),
+            title: Text('Zápisník'),
             onTap: () {
               // Update the state of the app
               // ...
               // Then close the drawer
-              Navigator.pop(context);
+              Navigator.pushNamed(context, "/second");
             },
           ),
           ListTile(
-            title: Text('CameraScreen'),
+            title: Text('Kamera'),
             onTap: () {
               // Update the state of the app
               // ...
               // Then close the drawer
-              Navigator.pop(context);
+              Navigator.pushNamed(context, "/camera");
             },
           ),
           ListTile(
-            title: Text('ImageScreen'),
+            title: Text('Fotky'),
             onTap: () {
               // Update the state of the app
               // ...
               // Then close the drawer
-              Navigator.pop(context);
+              Navigator.pushNamed(context, "/image");
             },
           ),
         ],

@@ -42,7 +42,7 @@ class _SecondScreenState extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Přidání úžasného nápadu"),
+        title: Text("Zápisník"),
         actions: [
           IconButton(
             icon: const Icon(Icons.error),

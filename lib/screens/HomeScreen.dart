@@ -63,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seznam úžasných nápadů"),
-        actions: [
+        title: Text("Můj seznam"),
+               actions: [
           IconButton(
             icon: const Icon(Icons.hardware),
             onPressed: () => Navigator.pushNamed(context, "/second"),
@@ -87,6 +87,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Row(
                         children: [
                           Text(snapshot.data[index]),
+                          Container(
+                            color: (Colors.green),
+                            child: Text(
+                              snapshot.data[index],
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
+                          ),
+
                           IconButton(
                             icon: const Icon(Icons.clear),
                             onPressed: () => _remove(index),
