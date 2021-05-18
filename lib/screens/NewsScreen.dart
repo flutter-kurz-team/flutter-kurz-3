@@ -47,6 +47,7 @@ class _NewsScreenState extends State<NewsScreen> {
           future: getFeed(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
+                //snapshot.data == rssFeed
                 return Column(
                   children: [
                     Text(snapshot.data.title),
@@ -57,7 +58,14 @@ class _NewsScreenState extends State<NewsScreen> {
                           itemCount: snapshot.data.items.length,
                           itemBuilder: (BuildContext context, int index) {
                             var curItem = snapshot.data.items[index];
-                            return Text(curItem.title);
+
+                            return Column(
+                                children: [
+                                  Text(curItem.title),
+                                  Text(curItem.description),
+                                  Container(height: 10),
+                                ],
+                                );
                           }
                       ),
                     ),
