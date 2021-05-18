@@ -26,10 +26,11 @@ class _NewsScreenState extends State<NewsScreen> {
     });
   }
 
-  void getFeed() async {
+  Future getFeed() async {
     var url = Uri.parse(feedUrl);
     var response = await http.get(url);
-    print(response.body);
+    var rssFeed = RssFeed.parse(response.body);
+    return rssFeed;
   }
 
   @override
@@ -42,13 +43,29 @@ class _NewsScreenState extends State<NewsScreen> {
           actions: [
           ],
         ),
-        body: Center(
-          child: Container(
-            child: ElevatedButton(
-              child: Text("Stáhnout"),
-              onPressed: () => getFeed(),
-            ),
-          ),
+        body: FutureBuilder(
+          future: getFeed(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children: [
+                    Text(snapshot.data.title),
+                    Container(
+                      height: 500,
+                      child:
+                      ListView.builder(
+                          itemCount: snapshot.data.items.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            var curItem = snapshot.data.items[index];
+                            return Text(curItem.title);
+                          }
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return CircularProgressIndicator();
+          }
         ),
         floatingActionButton: getHomeButton(context),
       ),
