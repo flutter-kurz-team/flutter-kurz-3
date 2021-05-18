@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../components/homeFloatingButton.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
 
@@ -58,12 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child:Scaffold(
       appBar: AppBar(
         title: Text("Seznam úžasných nápadů"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.edit),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
@@ -101,6 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             }),
       ),
+      floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }

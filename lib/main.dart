@@ -3,6 +3,7 @@ import 'screens/HomeScreen.dart';
 import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
+import 'screens/WelcomeScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter',
+      title: 'Seznam úžasných nápadů',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,15 +25,17 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.orange,
       ),
       routes: {
         '/': (context) => HomeScreen(),
         '/second': (context) => SecondScreen(),
         '/camera': (context) => CameraScreen(),
         '/image': (context) => ImageScreen(),
+        '/welcome': (context) => WelcomeScreen(),
+
       },
-      initialRoute: '/',
+      initialRoute: '/welcome',
     );
   }
 }

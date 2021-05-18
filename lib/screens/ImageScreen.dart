@@ -53,18 +53,23 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Seznam úžasných nápadů"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.hardware),
+            icon: const Icon(Icons.edit),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
             icon: const Icon(Icons.camera_alt),
             onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
+          IconButton(
+            icon: const Icon(Icons.notes),
+            onPressed: () => Navigator.pushNamed(context, "/")
+          )
         ],
       ),
       body: Center(
@@ -99,6 +104,7 @@ class _ImageScreenState extends State<ImageScreen> {
             }),
       ),
       floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }
