@@ -82,7 +82,7 @@ class _CameraScreenState extends State<CameraScreen> {
     return new WillPopScope(onWillPop: () async => false,
       child: Scaffold(
       appBar: AppBar(
-        title: Text("Kamera"),
+        title: Text("Vyfocení úžasného nápadu"),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(

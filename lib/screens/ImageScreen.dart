@@ -56,7 +56,8 @@ class _ImageScreenState extends State<ImageScreen> {
     return new WillPopScope(onWillPop: () async => false,
       child: Scaffold(
       appBar: AppBar(
-        title: Text("Seznam úžasných nápadů"),
+        title: Text("Galerie úžasných nápadů"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.edit),
@@ -66,10 +67,7 @@ class _ImageScreenState extends State<ImageScreen> {
             icon: const Icon(Icons.camera_alt),
             onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
-          IconButton(
-            icon: const Icon(Icons.notes),
-            onPressed: () => Navigator.pushNamed(context, "/")
-          )
+
         ],
       ),
       body: Center(
