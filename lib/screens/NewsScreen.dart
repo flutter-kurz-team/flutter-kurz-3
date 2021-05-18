@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:webfeed/webfeed.dart';
+import 'package:http/http.dart' as http;
 
 import '../components/homeFloatingButton.dart';
 
@@ -13,6 +15,7 @@ class NewsScreen extends StatefulWidget {
 class _NewsScreenState extends State<NewsScreen> {
   SharedPreferences _prefs;
   bool started = false;
+  String feedUrl = "https://servis.idnes.cz/rss.aspx?c=zpravodaj";
 
   void initState() {
     super.initState();
@@ -21,6 +24,12 @@ class _NewsScreenState extends State<NewsScreen> {
       started = true;
       print("Nastartováno");
     });
+  }
+
+  void getFeed() async {
+    var url = Uri.parse(feedUrl);
+    var response = await http.get(url);
+    print(response.body);
   }
 
   @override
@@ -35,6 +44,10 @@ class _NewsScreenState extends State<NewsScreen> {
         ),
         body: Center(
           child: Container(
+            child: ElevatedButton(
+              child: Text("Stáhnout"),
+              onPressed: () => getFeed(),
+            ),
           ),
         ),
         floatingActionButton: getHomeButton(context),

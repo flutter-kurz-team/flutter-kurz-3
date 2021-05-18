@@ -77,6 +77,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox (
+                  height: 40,
+                  width: 300,
+                  child: ElevatedButton.icon(
+                    onPressed: () => Navigator.pushNamed(context, '/news'),
+                    icon: Icon(Icons.mail_outline_sharp),
+                    label: Text("Novinky",
+                      style: TextStyle(fontSize:17.5),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
