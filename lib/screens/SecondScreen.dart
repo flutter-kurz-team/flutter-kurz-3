@@ -39,13 +39,15 @@ class _SecondScreenState extends State<SecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Přidání úžasného nápadu"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.error),
-            onPressed: () => Navigator.pushNamed(context, "/"),
+            icon: const Icon(Icons.camera_alt),
+            onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
         ],
       ),
@@ -64,6 +66,7 @@ class _SecondScreenState extends State<SecondScreen> {
         ),
       ),
       floatingActionButton: getHomeButton(context),
+    ),
     );
   }
 }
