@@ -64,6 +64,17 @@ class _NewsScreenState extends State<NewsScreen> {
                                 Text(curItem.title,
                                   style: TextStyle(fontWeight: FontWeight.bold),),
                                 Text(curItem.description),
+                                InkWell(
+                                    child: Text("Více",
+                                        style: TextStyle(
+                                          color: Colors.blue,
+                                          decoration: TextDecoration.underline,)),
+                                    onTap: () async {
+                                      if (await canLaunch(curItem.link)) {
+                                        await launch(curItem.link);
+                                      }
+                                    }
+                                ),
                                 Container(height: 10),
                               ],
                             );
