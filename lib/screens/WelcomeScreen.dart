@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:webfeed/webfeed.dart';
+import 'package:http/http.dart' as http;
 
 class WelcomeScreen extends StatefulWidget {
   WelcomeScreen({Key key}) : super(key: key);
@@ -77,6 +80,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
+                  Padding(
+                  padding: const EdgeInsets.all(8.0),
+                    child: SizedBox (
+                        height: 40,
+                        width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () => Navigator.pushNamed(context, '/news'),
+                          icon: Icon(Icons.web),
+                        label: Text("Novinky",
+                        style: TextStyle(fontSize:17.5),
+    ),
+                      ),
+                    ),
+                  ),
             ],
           ),
         ),
