@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 import '../components/homeFloatingButton.dart';
 
@@ -57,7 +59,14 @@ class _NewsScreenState extends State<NewsScreen> {
                           itemCount: snapshot.data.items.length,
                           itemBuilder: (BuildContext context, int index) {
                             var curItem = snapshot.data.items[index];
-                            return Text(curItem.title);
+                            return Column(
+                              children: [
+                                Text(curItem.title,
+                                  style: TextStyle(fontWeight: FontWeight.bold),),
+                                Text(curItem.description),
+                                Container(height: 10),
+                              ],
+                            );
                           }
                       ),
                     ),
