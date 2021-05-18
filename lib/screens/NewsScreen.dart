@@ -51,7 +51,11 @@ class _NewsScreenState extends State<NewsScreen> {
               if (snapshot.hasData) {
                 return Column(
                   children: [
-                    Text(snapshot.data.title),
+                    Text(snapshot.data.title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.red)),
                     Container(
                       height: 500,
                       child:
