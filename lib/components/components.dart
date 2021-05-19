@@ -59,6 +59,16 @@ class Components {
               Navigator.pushNamed(context, "/date");
             },
           ),
+          ListTile(
+            leading: Icon(Icons.message),
+            title: Text('Novinky'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
+              Navigator.pushNamed(context, "/news");
+            },
+          ),
 
 
         ],

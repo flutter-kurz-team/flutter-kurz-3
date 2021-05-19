@@ -4,6 +4,7 @@ import 'screens/SecondScreen.dart';
 import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
 import 'screens/DatePickerScreen.dart';
+import 'screens/NewsScreen.dart';
 
 
 void main() {
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/camera': (context) => CameraScreen(),
         '/image': (context) => ImageScreen(),
         '/date' : (context) => DatePickerScreen(),
+        '/news' : (context) => NewsScreen(),
       },
       initialRoute: '/',
     );
