@@ -3,7 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 
+
 import '../components/components.dart';
+
 
 class NewsScreen extends StatefulWidget {
   NewsScreen({Key key}) : super(key: key);
@@ -30,9 +32,7 @@ class _NewsScreenState extends State<NewsScreen> {
     var url = Uri.parse(feedUrl);
     var response = await http.get(url);
     var rssFeed = RssFeed.parse(response.body);
-    for (var item in rssFeed.items) {
-      print(item.title);
-    }
+    return rssFeed;
   }
 
   @override
@@ -45,6 +45,8 @@ class _NewsScreenState extends State<NewsScreen> {
           actions: [
           ],
         ),
+        drawer: Components().getDrawer(context),
+        drawerScrimColor: Colors.green,
         body: FutureBuilder(
             future: getFeed(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -65,7 +67,7 @@ class _NewsScreenState extends State<NewsScreen> {
                               children: [
                                 Text(curItem.title),
                                 Text(curItem.description),
-                                Container(height: 10),
+                                Container(height: 40),
                               ],
                             );
                           }

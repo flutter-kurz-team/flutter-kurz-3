@@ -12,12 +12,22 @@ class Components {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            child: Text('Drawer Header',
+            child: Text('Menu',
               style: TextStyle(
                 color: Colors.green,
                 fontSize: 24,
               ),
             ),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Domů'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
+              Navigator.pushNamed(context, "/");
+            },
           ),
           ListTile(
             leading: Icon(Icons.message),
