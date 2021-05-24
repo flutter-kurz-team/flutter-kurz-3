@@ -61,9 +61,13 @@ class _NewsScreenState extends State<NewsScreen> {
 
                             return Column(
                                 children: [
-                                  Text(curItem.title),
+                                 Container(
+                            color: Colors.yellow,
+                                     child:
+                                Text(curItem.title, style: TextStyle(fontWeight:FontWeight.w700, fontSize: 15),),),
+
                                   Text(curItem.description),
-                                  Container(height: 10),
+                                  Container(height: 20),
                                 ],
                                 );
                           }
