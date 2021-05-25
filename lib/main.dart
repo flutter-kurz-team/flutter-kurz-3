@@ -5,7 +5,7 @@ import 'screens/CameraScreen.dart';
 import 'screens/ImageScreen.dart';
 import 'screens/DatePickerScreen.dart';
 import 'screens/NewsScreen.dart';
-
+import 'screens/WelcomeScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Seznam úžasných nápadů',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green,
         textTheme: TextTheme(bodyText1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
         brightness: Brightness.dark,
+        primarySwatch: Colors.orange,
       ),
       routes: {
         '/': (context) => HomeScreen(),
@@ -38,8 +39,9 @@ class MyApp extends StatelessWidget {
         '/image': (context) => ImageScreen(),
         '/date' : (context) => DatePickerScreen(),
         '/news' : (context) => NewsScreen(),
+        '/welcome': (context) => WelcomeScreen(),
       },
-      initialRoute: '/',
+      initialRoute: '/welcome',
     );
   }
 }

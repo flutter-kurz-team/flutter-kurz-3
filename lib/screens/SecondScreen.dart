@@ -40,7 +40,8 @@ class _SecondScreenState extends State<SecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Zápisník"),
         actions: [
@@ -67,6 +68,7 @@ class _SecondScreenState extends State<SecondScreen> {
         ),
       ),
       floatingActionButton: Components().getHomeButton(context),
+    )
     );
   }
 }

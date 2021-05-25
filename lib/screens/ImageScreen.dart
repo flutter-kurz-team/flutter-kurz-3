@@ -55,7 +55,8 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Fotky"),
         actions: [
@@ -67,6 +68,10 @@ class _ImageScreenState extends State<ImageScreen> {
             icon: const Icon(Icons.camera_alt),
             onPressed: () => Navigator.pushNamed(context, "/camera"),
           ),
+          IconButton(
+            icon: const Icon(Icons.notes),
+            onPressed: () => Navigator.pushNamed(context, "/")
+          )
         ],
       ),
       drawer: Components().getDrawer(context),
@@ -103,6 +108,6 @@ class _ImageScreenState extends State<ImageScreen> {
             }),
       ),
       floatingActionButton: Components().getHomeButton(context),
-    );
+    ));
   }
 }

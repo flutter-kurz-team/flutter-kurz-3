@@ -60,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child:Scaffold(
       appBar: AppBar(
         title: Text("Můj seznam"),
                actions: [
@@ -116,8 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
             }),
       ),
       floatingActionButton: Components().getHomeButton(context),
-
-    );
+    ));
 
   }
 }

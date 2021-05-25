@@ -1,4 +1,4 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path_provider/path_provider.dart';
@@ -80,16 +80,14 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new WillPopScope(onWillPop: () async => false,
+      child: Scaffold(
       appBar: AppBar(
         title: Text("Kamera"),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.error),
-            onPressed: () => Navigator.pushNamed(context, "/"),
-          ),
-          IconButton(
-            icon: const Icon(Icons.topic),
+            icon: const Icon(Icons.image),
             onPressed: () => Navigator.pushNamed(context, "/image"),
           ),
         ],
@@ -112,8 +110,7 @@ class _CameraScreenState extends State<CameraScreen> {
           ],
         ),
       ),
-          floatingActionButton: Components().getHomeButton(context),
-
+          floatingActionButton: Components().getHomeButton(context),)
     );
   }
 }
