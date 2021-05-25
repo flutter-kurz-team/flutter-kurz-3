@@ -4,6 +4,7 @@ import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 
 
+
 import '../components/components.dart';
 
 
@@ -54,7 +55,16 @@ class _NewsScreenState extends State<NewsScreen> {
                 //snapshot.data == rssFeed
                 return Column(
                   children: [
+                    Text(snapshot.data.items.length,
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "Google Sans",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 15),
+                    ),
                     Text(snapshot.data.title),
+
                     Container(
                       height: 500,
                       child:
@@ -67,7 +77,6 @@ class _NewsScreenState extends State<NewsScreen> {
                               children: [
                                 Text(curItem.title),
                                 Text(curItem.description),
-                                Container(height: 40),
                               ],
                             );
                           }
