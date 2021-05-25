@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
-import '../components/homeFloatingButton.dart';
+import '../components/components.dart';
+
+
 class ImageScreen extends StatefulWidget {
   ImageScreen({Key key}) : super(key: key);
 
@@ -56,10 +58,10 @@ class _ImageScreenState extends State<ImageScreen> {
     return new WillPopScope(onWillPop: () async => false,
       child: Scaffold(
       appBar: AppBar(
-        title: Text("Seznam úžasných nápadů"),
+        title: Text("Fotky"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit),
+            icon: const Icon(Icons.notes),
             onPressed: () => Navigator.pushNamed(context, "/second"),
           ),
           IconButton(
@@ -72,6 +74,8 @@ class _ImageScreenState extends State<ImageScreen> {
           )
         ],
       ),
+      drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: FutureBuilder(
             future: getListOfImages(),
@@ -103,8 +107,7 @@ class _ImageScreenState extends State<ImageScreen> {
               }
             }),
       ),
-      floatingActionButton: getHomeButton(context),
-    ),
-    );
+      floatingActionButton: Components().getHomeButton(context),
+    ));
   }
 }
