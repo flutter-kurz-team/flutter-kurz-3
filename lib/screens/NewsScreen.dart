@@ -49,7 +49,6 @@ class _NewsScreenState extends State<NewsScreen> {
         ),
         drawer: Components().getDrawer(context),
         drawerScrimColor: Colors.green,
-
         body: FutureBuilder(
             future: getFeed(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {

@@ -26,6 +26,16 @@ class Components {
               // Update the state of the app
               // ...
               // Then close the drawer
+              Navigator.pushNamed(context, "/welcome");
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.notes),
+            title: Text('Seznam'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
               Navigator.pushNamed(context, "/");
             },
           ),
@@ -88,7 +98,7 @@ class Components {
 
   FloatingActionButton getHomeButton(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () => Navigator.pushNamed(context, "/"),
+      onPressed: () => Navigator.pushNamed(context, "/welcome"),
       tooltip: '/',
       child: const Icon(Icons.home),
     );
