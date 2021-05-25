@@ -55,7 +55,7 @@ class _NewsScreenState extends State<NewsScreen> {
                 //snapshot.data == rssFeed
                 return Column(
                   children: [
-                    Text(snapshot.data.items.length,
+                    Text(snapshot.data.title,
                       style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.w500,
