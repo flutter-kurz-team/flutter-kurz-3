@@ -1,11 +1,13 @@
 import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
+import '../components/components.dart';
 
-import '../components/homeFloatingButton.dart';
+
 
 class NewsScreen extends StatefulWidget {
   NewsScreen({Key key}) : super(key: key);
@@ -45,6 +47,9 @@ class _NewsScreenState extends State<NewsScreen> {
           actions: [
           ],
         ),
+        drawer: Components().getDrawer(context),
+        drawerScrimColor: Colors.green,
+
         body: FutureBuilder(
             future: getFeed(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -56,6 +61,7 @@ class _NewsScreenState extends State<NewsScreen> {
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.red)),
+
                     Container(
                       height: 500,
                       child:
@@ -91,7 +97,9 @@ class _NewsScreenState extends State<NewsScreen> {
               return CircularProgressIndicator();
             }
         ),
-        floatingActionButton: getHomeButton(context),
+
+        floatingActionButton: Components().getHomeButton(context),
+
       ),
     );
   }

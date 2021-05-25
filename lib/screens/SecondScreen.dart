@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../components/homeFloatingButton.dart';
+import '../components/components.dart';
+
 
 class SecondScreen extends StatefulWidget {
   SecondScreen({Key key}) : super(key: key);
@@ -42,15 +43,16 @@ class _SecondScreenState extends State<SecondScreen> {
     return new WillPopScope(onWillPop: () async => false,
       child: Scaffold(
       appBar: AppBar(
-        title: Text("Přidání úžasného nápadu"),
-        automaticallyImplyLeading: false,
+        title: Text("Zápisník"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.camera_alt),
-            onPressed: () => Navigator.pushNamed(context, "/camera"),
+            icon: const Icon(Icons.save),
+            onPressed: () => Navigator.pushNamed(context, "/"),
           ),
         ],
       ),
+      drawer: Components().getDrawer(context),
+      drawerScrimColor: Colors.green,
       body: Center(
         child: Column(
           children: [
@@ -65,8 +67,8 @@ class _SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
-      floatingActionButton: getHomeButton(context),
-    ),
+      floatingActionButton: Components().getHomeButton(context),
+    )
     );
   }
 }
