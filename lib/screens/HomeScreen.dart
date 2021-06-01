@@ -75,10 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      drawer: Components().getDrawer(context),
-      drawerScrimColor: Colors.green,
-      body: Center(
-        child: FutureBuilder(
+        drawer: Components().getDrawer(context),
+        drawerScrimColor: Colors.green,
+        body: Center(
+         child: FutureBuilder(
             future: getListOfIdeas(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
@@ -116,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             }),
       ),
-      floatingActionButton: Components().getHomeButton(context),
     ));
 
   }
