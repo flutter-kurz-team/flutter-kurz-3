@@ -84,7 +84,7 @@ class _CameraScreenState extends State<CameraScreen> {
       child: Scaffold(
       appBar: AppBar(
         title: Text("Kamera"),
-        automaticallyImplyLeading: false,
+        //automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.image),
@@ -92,10 +92,10 @@ class _CameraScreenState extends State<CameraScreen> {
           ),
         ],
       ),
-      drawer: Components().getDrawer(context),
-      drawerScrimColor: Colors.green,
-      body: Center(
-        child: Column(
+        drawer: Components().getDrawer(context),
+        drawerScrimColor: Colors.green,
+        body: Center(
+         child: Column(
           children: [
             Column(
               children: [
