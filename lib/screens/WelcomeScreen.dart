@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/components.dart';
 
 class WelcomeScreen extends StatefulWidget {
   WelcomeScreen({Key key}) : super(key: key);
@@ -17,6 +18,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           title: const Text('Seznam úžasných nápadů'),
           automaticallyImplyLeading: false,
         ),
+        drawer: Components().getDrawer(context),
+        drawerScrimColor: Colors.green,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
