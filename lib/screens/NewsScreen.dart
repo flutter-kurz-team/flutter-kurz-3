@@ -66,7 +66,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
 
                     Container(
-                      height: 600,
+                      height: 500,
                       child:
                       ListView.builder(
                           itemCount: snapshot.data.items.length,
@@ -75,12 +75,18 @@ class _NewsScreenState extends State<NewsScreen> {
 
                             return Column(
                               children: [
-                                Text(curItem.title),
-                                Text(curItem.description),
-                                Container(
-                                  height: 20,
-                                  width: 14,
+                                Text(curItem.title,
+                                style: TextStyle(
                                   color: Colors.green,
+                                ),), //Titulek novinek
+                                Text(curItem.description,
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),),
+                                Container(
+                                  height: 30,
+                                  width: 400,
+                                  color: Colors.white,
 
                                 ),
                               ],
