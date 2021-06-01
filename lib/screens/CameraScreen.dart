@@ -84,7 +84,6 @@ class _CameraScreenState extends State<CameraScreen> {
       child: Scaffold(
       appBar: AppBar(
         title: Text("Kamera"),
-        //automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.image),
