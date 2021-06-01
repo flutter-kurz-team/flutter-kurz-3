@@ -106,7 +106,7 @@ class _ImageScreenState extends State<ImageScreen> {
               }
             }),
       ),
-      floatingActionButton: Components().getHomeButton(context),
+
     ));
   }
 }

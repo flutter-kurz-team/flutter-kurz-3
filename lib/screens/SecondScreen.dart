@@ -67,7 +67,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
-      floatingActionButton: Components().getHomeButton(context),
+
     )
     );
   }
