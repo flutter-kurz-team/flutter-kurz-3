@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
+import '../components/imageListItem.dart';
 import '../components/components.dart';
 
 
@@ -81,25 +82,18 @@ class _ImageScreenState extends State<ImageScreen> {
             future: getListOfImages(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
-                return ListView.builder(
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          Container(
-                            width: 200,
-                            height: 200,
-                            child: Image.file(File(snapshot.data[index])),
-                          ),
-                          Container(height: 10),
-                          IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () => removeImage(index),
-                          ),
-                          Container(height: 20),
-                        ],
-                      );
-                    });
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      for (final img in snapshot.data)
+                        ImageListItem(
+                          fileName: img,
+                          name: "Název",
+                          location: "Lokace",
+                        ),
+                    ],
+                  ),
+                );
               } else if (snapshot.hasError) {
                 return Text("Mám chybu");
               } else {
