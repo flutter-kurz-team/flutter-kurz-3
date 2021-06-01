@@ -79,7 +79,6 @@ class _NewsScreenState extends State<NewsScreen> {
               return CircularProgressIndicator();
             }
         ),
-        floatingActionButton: Components().getHomeButton(context),
       ),
     );
   }

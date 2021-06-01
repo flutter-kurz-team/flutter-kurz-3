@@ -45,7 +45,7 @@ class _DatePickerState extends State<DatePickerScreen> {
           ],
         ),
       ),
-      floatingActionButton: Components().getHomeButton(context),
+
     );
   }
 }

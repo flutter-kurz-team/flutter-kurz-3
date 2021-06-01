@@ -110,7 +110,7 @@ class _CameraScreenState extends State<CameraScreen> {
           ],
         ),
       ),
-          floatingActionButton: Components().getHomeButton(context),)
+        )
     );
   }
 }
