@@ -1,5 +1,9 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:webfeed/domain/media/description.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 
@@ -53,7 +57,13 @@ class _NewsScreenState extends State<NewsScreen> {
                 //snapshot.data == rssFeed
                 return Column(
                   children: [
-                    Text(snapshot.data.title),
+                    Text(snapshot.data.title,
+                      style: TextStyle(
+                          color: Colors.red,
+                          ),
+                    ),
+
+
                     Container(
                       height: 500,
                       child:
@@ -64,9 +74,20 @@ class _NewsScreenState extends State<NewsScreen> {
 
                             return Column(
                               children: [
-                                Text(curItem.title),
-                                Text(curItem.description),
-                                Container(height: 40),
+                                Text(curItem.title,
+                                style: TextStyle(
+                                  color: Colors.green,
+                                ),), //Titulek novinek
+                                Text(curItem.description,
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),),
+                                Container(
+                                  height: 30,
+                                  width: 400,
+                                  color: Colors.white,
+
+                                ),
                               ],
                             );
                           }
@@ -82,3 +103,6 @@ class _NewsScreenState extends State<NewsScreen> {
     );
   }
 }
+
+
+
