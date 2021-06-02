@@ -60,7 +60,16 @@ class _NewsScreenState extends State<NewsScreen> {
                   children: [
                     Text(snapshot.data.title,
                       style: TextStyle(
-                          color: Colors.red,
+                          color: Colors.green,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                                color: Colors.black,
+                                blurRadius: 2.0,
+                                offset: Offset(4,1)
+                            )
+                          ]
                           ),
                     ),
 
@@ -78,11 +87,33 @@ class _NewsScreenState extends State<NewsScreen> {
                                 Text(curItem.title,
                                 style: TextStyle(
                                   color: Colors.green,
-                                ),), //Titulek novinek
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.combine([
+                                    TextDecoration.underline,
+                                  TextDecoration.overline 
+                                  ]),
+                                  decorationThickness: 1.0,
+                                  decorationColor: Colors.green,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black,
+                                      blurRadius: 2.0,
+                                      offset: Offset(4,1)
+                                    )
+                                  ]
+                                ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                                //Titulek novinek
                                 Text(curItem.description,
                                 style: TextStyle(
-                                  color: Colors.red,
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+
                                 ),),
+
                                 Container(
                                   height: 30,
                                   width: 400,
