@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 
 
 
+
 import '../components/components.dart';
 
 
@@ -35,6 +36,7 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   Future getFeed() async {
+
     var url = Uri.parse(feedUrl);
     var response = await http.get(url);
     var rssFeed = RssFeed.parse(response.body);
@@ -60,7 +62,8 @@ class _NewsScreenState extends State<NewsScreen> {
                 //snapshot.data == rssFeed
                 return Column(
                   children: [
-                    Text(snapshot.data.title,
+                    Container(
+                     child: Text(snapshot.data.title,
                       style: TextStyle(
                           color: Colors.red,
                           fontSize: 26,
@@ -76,6 +79,8 @@ class _NewsScreenState extends State<NewsScreen> {
                       textAlign: TextAlign.center,
                     ),
 
+                    ),
+
 
                     Container(
                       height: 500,
@@ -87,14 +92,14 @@ class _NewsScreenState extends State<NewsScreen> {
 
                             return Column(
                               children: [
+                                Container(
+                              child:
                                 Text(curItem.title,
-                                style: TextStyle(
+                              style: TextStyle(
                                   color: Colors.green,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.combine([
-                                    TextDecoration.overline
-                                  ]),
+
                                   decorationThickness: 1.0,
                                   decorationColor: Colors.green,
                                   shadows: [
@@ -105,25 +110,55 @@ class _NewsScreenState extends State<NewsScreen> {
                                     )
                                   ]
                                 ),
-                                  textAlign: TextAlign.justify,
+
+                                  textAlign: TextAlign.center,
                                 ),
-                                //Titulek novinek
+                                  color: Colors.black,
+                                  alignment: Alignment.center,
+                                  width: 380,
+                                  height: 100,
+
+                                  ),
+
+
+                                  
+
+                                Container(
+
+
+                                child:
                                 Text(curItem.description,
+
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
+                                ),
 
-                                ),),
+                                  textAlign: TextAlign.center,
+                                ),
+
+                                  color: Colors.black,
+                                  alignment: Alignment.center,
+                                  width: 380,
+
+
+                                ),
 
                                 Container(
-                                  height: 25,
+                                  height: 30,
                                   width: 380,
-                                  color: Colors.black,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 8,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
 
                                   ),
 
-                                
+
                               ],
                             );
                           }
