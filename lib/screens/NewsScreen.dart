@@ -8,6 +8,7 @@ import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 
 
+
 import '../components/components.dart';
 
 
@@ -22,6 +23,7 @@ class _NewsScreenState extends State<NewsScreen> {
   SharedPreferences _prefs;
   bool started = false;
   String feedUrl = "https://servis.idnes.cz/rss.aspx?c=zpravodaj";
+
 
   void initState() {
     super.initState();
@@ -60,8 +62,8 @@ class _NewsScreenState extends State<NewsScreen> {
                   children: [
                     Text(snapshot.data.title,
                       style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 50,
+                          color: Colors.red,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold,
                           shadows: [
                             Shadow(
@@ -71,6 +73,7 @@ class _NewsScreenState extends State<NewsScreen> {
                             )
                           ]
                           ),
+                      textAlign: TextAlign.center,
                     ),
 
 
@@ -87,11 +90,10 @@ class _NewsScreenState extends State<NewsScreen> {
                                 Text(curItem.title,
                                 style: TextStyle(
                                   color: Colors.green,
-                                  fontSize: 30,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.combine([
-                                    TextDecoration.underline,
-                                  TextDecoration.overline 
+                                    TextDecoration.overline
                                   ]),
                                   decorationThickness: 1.0,
                                   decorationColor: Colors.green,
@@ -109,17 +111,19 @@ class _NewsScreenState extends State<NewsScreen> {
                                 Text(curItem.description,
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 10,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
 
                                 ),),
 
                                 Container(
-                                  height: 30,
-                                  width: 400,
-                                  color: Colors.white,
+                                  height: 25,
+                                  width: 380,
+                                  color: Colors.black,
 
-                                ),
+                                  ),
+
+                                
                               ],
                             );
                           }
