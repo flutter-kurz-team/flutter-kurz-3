@@ -45,7 +45,7 @@ class _NewsScreenState extends State<NewsScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Novinky"),
-          automaticallyImplyLeading: false,
+          //automaticallyImplyLeading: false,
           actions: [
           ],
         ),
